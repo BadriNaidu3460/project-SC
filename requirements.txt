@@ -1,0 +1,9 @@
+Flask==2.2.5
+flask-cors
+gunicorn==20.1.0
+tensorflow-cpu
+numpy
+opencv-python
+pillow
+h5py
+requests
