@@ -11,8 +11,9 @@ app = Flask(__name__, static_folder="../Frontend")
 CORS(app)  # allow frontend to communicate
 
 # ===== Load Model and Label Map =====
-MODEL_PATH = "sign_model_isl_faster.h5"
-LABEL_MAP_PATH = "label_map_faster.pkl"
+BASE=os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH =os.path.join(BASE, "sign_model_isl_faster.h5")
+LABEL_MAP_PATH =os.path.join(BASE, "label_map_faster.pkl")
 
 model = tf.keras.models.load_model(MODEL_PATH)
 with open(LABEL_MAP_PATH, "rb") as f:
