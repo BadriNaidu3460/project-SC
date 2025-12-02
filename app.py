@@ -6,9 +6,14 @@ import cv2
 import pickle
 import base64
 import os
-
-app = Flask(__name__, static_folder="../Frontend")
-CORS(app)  # allow frontend to communicate
+BASE_DIR=os.path.dirname(os.path.abspath(__file__))
+app = Flask(__name__, static_folder=os.path.join(BASE_DIR,"Frontend"),static_url_path="")
+ # allow frontend to communicate
+CORS(app)
+@app.route("/")
+def serve_frontend():
+    return
+send_from_directory(app.static_folder,"index.html")
 
 # ===== Load Model and Label Map =====
 BASE=os.path.dirname(os.path.abspath(__file__))
